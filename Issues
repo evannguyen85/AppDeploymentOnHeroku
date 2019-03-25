@@ -1,0 +1,19 @@
+Common issues:
+1) when pushing to heroku:
+fatal: 'heroku' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+Resolution:
+1) First, make sure you're logged into heroku:
+  heroku login 
+  
+Enter your credentials.
+
+2) Second, It's common to get this error when using a cloned git repo onto a new machine. 
+Even if your heroku credentials are already on the machine, there is no link between the cloned repo and heroku locally yet. 
+To do this, cd into the root dir of the cloned repo and run
+  heroku git:remote -a yourapp
+  (yourapp: is the name of the app created by heroku create, eg: boiling-brook-33207)
